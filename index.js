@@ -1,5 +1,12 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+  const cleanedWord = word.replace(/\s/g, "").toLowerCase(); 
+  const length = cleanedWord.length;
+  for (let i = 0; i < length / 2; i++) {
+    if (cleanedWord[i] !== cleanedWord[length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /* 
@@ -14,12 +21,14 @@ function isPalindrome(word) {
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
-  console.log("=>", isPalindrome("racecar"));
+console.log("=>", isPalindrome("level"));
 
-  console.log("");
+console.log("");
 
-  console.log("Expecting: false");
-  console.log("=>", isPalindrome("robot"));
+console.log("Expecting: false");
+console.log("=>", isPalindrome("useful"));
+console.log("Expecting: true");
+console.log("=>", isPalindrome("radar"));
 }
 
 module.exports = isPalindrome;
